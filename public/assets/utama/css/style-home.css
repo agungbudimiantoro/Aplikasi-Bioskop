@@ -1,0 +1,45 @@
+hr {
+    width: 90%;
+}
+
+.banner {
+    font-family: sans-serif;
+    text-shadow: 5px 5px 5px black;
+}
+
+.sedang-mulai,
+.akan-tayang {
+    padding: 30px 50px 0px 50px;
+}
+
+
+.sedang-mulai h2,
+.akan-tayang h2 {
+    padding-bottom: 20px;
+    font-size: 38px;
+
+}
+
+.sedang-mulai h5,
+.akan-tayang h5 {
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sedang-mulai span,
+.akan-tayang span {
+    font-size: 12px;
+
+}
+
+.parallax-container {
+    height: 300px;
+}
+
+.footer {
+    margin-top: -10px;
+    padding: 10px;
+    height: 60px;
+    text-transform: capitalize;
+}
