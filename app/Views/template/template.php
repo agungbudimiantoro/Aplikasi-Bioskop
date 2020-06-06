@@ -162,7 +162,7 @@
     Scripts
     ================================================ -->
   <!-- jQuery Library -->
-  <script type="text/javascript" src="<?= base_url() ?>/assets/dashboard/vendors/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="<?= base_url() ?>/assets/dashboard/vendors/jquery-3.5.1.min.js"></script>
   <!--materialize js-->
   <script type="text/javascript" src="<?= base_url() ?>/assets/dashboard/js/materialize.min.js"></script>
   <!--scrollbar-->
