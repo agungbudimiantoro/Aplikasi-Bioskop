@@ -31,27 +31,15 @@ $(function () {
     edge: 'left', // Choose the horizontal origin
   });
 
-  // Overlay Menu (Full screen menu)
-  $('.menu-sidebar-collapse').sideNav({
-    menuWidth: 240,
-    edge: 'left', // Choose the horizontal origin
-    //closeOnClick:true, // Set if default menu open is true
-    menuOut: false // Set if default menu open is true
-  });
-
-
   // Perfect Scrollbar
-  $('select').not('.disabled').material_select();
-  var leftnav = $(".page-topbar").height();
-  var leftnavHeight = window.innerHeight - leftnav;
-  if (!$('#slide-out.leftside-navigation').hasClass('native-scroll')) {
-    $('.leftside-navigation').perfectScrollbar({
-      suppressScrollX: true
-    });
-  }
-  var righttnav = $("#chat-out").height();
-  $('.rightside-navigation').perfectScrollbar({
-    suppressScrollX: true
-  });
+  // $('select').not('.disabled').material_select();
+  // var leftnav = $(".page-topbar").height();
+  // var leftnavHeight = window.innerHeight - leftnav;
+  // if (!$('#slide-out.leftside-navigation').hasClass('native-scroll')) {
+  //   $('.leftside-navigation').perfectScrollbar({
+  //     suppressScrollX: true
+  //   });
+  // }
+
 
 });

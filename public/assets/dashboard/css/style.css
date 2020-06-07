@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);
+
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -2167,7 +2168,12 @@ html {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   line-height: 1.1;
@@ -2177,7 +2183,12 @@ p {
   font-family: "Roboto", sans-serif;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
   font-weight: inherit;
 }
 
@@ -2377,6 +2388,7 @@ small {
   #main .nav-expanded .brand-sidebar {
     background: transparent !important;
   }
+
   .brand-sidebar .logo-wrapper {
     text-align: center;
     background: transparent;
@@ -2391,7 +2403,8 @@ ul.side-nav.leftside-navigation li:not(.no-padding) a {
 /*----------------------------------------
   General Layout Style
 ------------------------------------------*/
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -2421,7 +2434,9 @@ body.layout-light #header nav.navbar-color .header-search-wrapper input.header-s
   background: rgba(230, 230, 230, 0.3);
 }
 
-body.layout-light #header nav.navbar-color .header-search-wrapper input.header-search-input:hover, body.layout-light #header nav.navbar-color .header-search-wrapper input.header-search-input:active, body.layout-light #header nav.navbar-color .header-search-wrapper input.header-search-input:focus {
+body.layout-light #header nav.navbar-color .header-search-wrapper input.header-search-input:hover,
+body.layout-light #header nav.navbar-color .header-search-wrapper input.header-search-input:active,
+body.layout-light #header nav.navbar-color .header-search-wrapper input.header-search-input:focus {
   border: 1px solid #adadad;
   border-bottom: 1px solid #adadad !important;
   background: rgba(230, 230, 230, 0);
@@ -2476,7 +2491,9 @@ body.layout-dark #header nav.navbar-color .header-search-wrapper input.header-se
   background: rgba(230, 230, 230, 0.3);
 }
 
-body.layout-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:hover, body.layout-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:active, body.layout-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:focus {
+body.layout-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:hover,
+body.layout-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:active,
+body.layout-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:focus {
   border: 1px solid #adadad;
   border-bottom: 1px solid #adadad !important;
   background: rgba(230, 230, 230, 0);
@@ -2498,20 +2515,23 @@ body.layout-dark #main #left-sidebar-nav .side-nav {
   background: #37474f;
 }
 
-body.layout-dark #main #left-sidebar-nav .side-nav .collapsible-body, body.layout-dark #main #left-sidebar-nav .side-nav.fixed .collapsible-body {
+body.layout-dark #main #left-sidebar-nav .side-nav .collapsible-body,
+body.layout-dark #main #left-sidebar-nav .side-nav.fixed .collapsible-body {
   background: #37474f;
 }
 
-body.layout-dark #main #left-sidebar-nav .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
-body.layout-dark #main #left-sidebar-nav .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
+body.layout-dark #main #left-sidebar-nav .side-nav .collapsible-body>ul:not(.collapsible)>li.active,
+body.layout-dark #main #left-sidebar-nav .side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active {
   background: #263238 !important;
 }
 
-body.layout-dark #main #left-sidebar-nav .side-nav li > a, body.layout-dark #main #left-sidebar-nav .side-nav li .more-text {
+body.layout-dark #main #left-sidebar-nav .side-nav li>a,
+body.layout-dark #main #left-sidebar-nav .side-nav li .more-text {
   color: #fff;
 }
 
-body.layout-dark #main #left-sidebar-nav .side-nav li > a > i, body.layout-dark #main #left-sidebar-nav .side-nav li .more-text > i {
+body.layout-dark #main #left-sidebar-nav .side-nav li>a>i,
+body.layout-dark #main #left-sidebar-nav .side-nav li .more-text>i {
   color: #fff;
 }
 
@@ -2552,7 +2572,9 @@ body.layout-semi-dark #header nav.navbar-color .header-search-wrapper input.head
   background: rgba(230, 230, 230, 0.3);
 }
 
-body.layout-semi-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:hover, body.layout-semi-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:active, body.layout-semi-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:focus {
+body.layout-semi-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:hover,
+body.layout-semi-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:active,
+body.layout-semi-dark #header nav.navbar-color .header-search-wrapper input.header-search-input:focus {
   border: 1px solid #adadad;
   border-bottom: 1px solid #adadad !important;
   background: rgba(230, 230, 230, 0);
@@ -2574,20 +2596,23 @@ body.layout-semi-dark #main #left-sidebar-nav .side-nav {
   background: #37474f;
 }
 
-body.layout-semi-dark #main #left-sidebar-nav .side-nav .collapsible-body, body.layout-semi-dark #main #left-sidebar-nav .side-nav.fixed .collapsible-body {
+body.layout-semi-dark #main #left-sidebar-nav .side-nav .collapsible-body,
+body.layout-semi-dark #main #left-sidebar-nav .side-nav.fixed .collapsible-body {
   background: #37474f;
 }
 
-body.layout-semi-dark #main #left-sidebar-nav .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
-body.layout-semi-dark #main #left-sidebar-nav .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
+body.layout-semi-dark #main #left-sidebar-nav .side-nav .collapsible-body>ul:not(.collapsible)>li.active,
+body.layout-semi-dark #main #left-sidebar-nav .side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active {
   background: #263238;
 }
 
-body.layout-semi-dark #main #left-sidebar-nav .side-nav li > a, body.layout-semi-dark #main #left-sidebar-nav .side-nav li .more-text {
+body.layout-semi-dark #main #left-sidebar-nav .side-nav li>a,
+body.layout-semi-dark #main #left-sidebar-nav .side-nav li .more-text {
   color: #fff;
 }
 
-body.layout-semi-dark #main #left-sidebar-nav .side-nav li > a > i, body.layout-semi-dark #main #left-sidebar-nav .side-nav li .more-text > i {
+body.layout-semi-dark #main #left-sidebar-nav .side-nav li>a>i,
+body.layout-semi-dark #main #left-sidebar-nav .side-nav li .more-text>i {
   color: #fff;
 }
 
@@ -2696,6 +2721,7 @@ select {
   #main {
     padding-left: 0;
   }
+
   footer {
     padding-left: 0;
   }
@@ -6015,7 +6041,7 @@ li.home:before {
   width: 7px;
 }
 
-.collection .collection-item.avatar:not(.circle-clipper) > .circle {
+.collection .collection-item.avatar:not(.circle-clipper)>.circle {
   background: #e6e6e6;
 }
 
@@ -6175,6 +6201,7 @@ li.home:before {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
@@ -6188,6 +6215,7 @@ li.home:before {
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
@@ -6272,22 +6300,28 @@ header .brand-logo img {
   aside .nav-wrapper {
     text-align: center;
   }
+
   aside .nav-wrapper a.page-title {
     font-size: 36px;
   }
+
   aside .brand-sidebar {
     box-shadow: none;
     left: calc(50% - 120px);
   }
+
   aside .brand-sidebar .navbar-toggler {
     display: none;
   }
+
   aside .brand-sidebar .logo-wrapper {
     padding: 5px 18px;
   }
+
   aside .brand-sidebar .sidebar-collapse {
     top: -48px;
   }
+
   ul.side-nav.leftside-navigation {
     top: 56px !important;
   }
@@ -6448,13 +6482,13 @@ header .brand-logo img {
   font-size: 1rem;
 }
 
-#notifications-dropdown li > a {
+#notifications-dropdown li>a {
   padding: 0;
   font-size: 1.1rem;
   font-weight: 300;
 }
 
-#notifications-dropdown li > a > span {
+#notifications-dropdown li>a>span {
   display: inline-block;
   font-size: 1.2rem;
   position: relative;
@@ -6462,7 +6496,7 @@ header .brand-logo img {
   margin-right: 5px;
 }
 
-#notifications-dropdown li > time {
+#notifications-dropdown li>time {
   font-size: 0.8rem;
   font-weight: 400;
   margin-left: 38px;
@@ -6511,11 +6545,11 @@ nav ul li.no-hover:hover {
   height: 42px;
 }
 
-.side-nav li > a {
+.side-nav li>a {
   padding: 0 16px !important;
 }
 
-.side-nav li > a:hover {
+.side-nav li>a:hover {
   background-color: transparent;
 }
 
@@ -6527,8 +6561,8 @@ nav ul li.no-hover:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
-.side-nav .collapsible-body > ul:not(.collapsible) > li.active i,
-.side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active i {
+.side-nav .collapsible-body>ul:not(.collapsible)>li.active i,
+.side-nav.fixed .collapsible-body>ul:not(.collapsible)>li.active i {
   color: #fff;
 }
 
@@ -6536,7 +6570,8 @@ nav ul li.no-hover:hover {
   width: 64px;
 }
 
-.nav-collapsed .brand-sidebar .navbar-toggler, .nav-collapsed .brand-sidebar .brand-logo span {
+.nav-collapsed .brand-sidebar .navbar-toggler,
+.nav-collapsed .brand-sidebar .brand-logo span {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 2s, opacity 0.05s linear;
@@ -6546,7 +6581,11 @@ nav ul li.no-hover:hover {
   width: 64px;
 }
 
-.nav-collapsed .side-nav .user-options, .nav-collapsed .side-nav .nav-text, .nav-collapsed .side-nav .collapsible-body span, .nav-collapsed .side-nav span.badge, .nav-collapsed .side-nav .collapsible-header:after {
+.nav-collapsed .side-nav .user-options,
+.nav-collapsed .side-nav .nav-text,
+.nav-collapsed .side-nav .collapsible-body span,
+.nav-collapsed .side-nav span.badge,
+.nav-collapsed .side-nav .collapsible-header:after {
   display: none;
 }
 
@@ -6742,7 +6781,7 @@ ul.side-nav .collapsible-header.active:after {
   margin: 0;
 }
 
-.bold > a {
+.bold>a {
   font-weight: bold;
 }
 
@@ -6835,11 +6874,11 @@ ul.side-nav .collapsible-header.active:after {
   list-style: none;
 }
 
-#breadcrumbs-wrapper .breadcrumbs > li {
+#breadcrumbs-wrapper .breadcrumbs>li {
   display: inline-block;
 }
 
-#breadcrumbs-wrapper .breadcrumbs > li + li:before {
+#breadcrumbs-wrapper .breadcrumbs>li+li:before {
   padding: 0 5px;
   color: #bdbdbd;
   content: "/\00a0";
@@ -6879,38 +6918,43 @@ ul.side-nav .collapsible-header.active:after {
   width: 100%;
 }
 
-.left-alert input[type=text] + label:after,
-.left-alert input[type=password] + label:after,
-.left-alert input[type=email] + label:after,
-.left-alert input[type=url] + label:after,
-.left-alert input[type=time] + label:after,
-.left-alert input[type=date] + label:after,
-.left-alert input[type=datetime-local] + label:after,
-.left-alert input[type=tel] + label:after,
-.left-alert input[type=number] + label:after,
-.left-alert input[type=search] + label:after,
-.left-alert textarea.materialize-textarea + label:after {
+.left-alert input[type=text]+label:after,
+.left-alert input[type=password]+label:after,
+.left-alert input[type=email]+label:after,
+.left-alert input[type=url]+label:after,
+.left-alert input[type=time]+label:after,
+.left-alert input[type=date]+label:after,
+.left-alert input[type=datetime-local]+label:after,
+.left-alert input[type=tel]+label:after,
+.left-alert input[type=number]+label:after,
+.left-alert input[type=search]+label:after,
+.left-alert textarea.materialize-textarea+label:after {
   left: 0px;
 }
 
-.right-alert input[type=text] + label:after,
-.right-alert input[type=password] + label:after,
-.right-alert input[type=email] + label:after,
-.right-alert input[type=url] + label:after,
-.right-alert input[type=time] + label:after,
-.right-alert input[type=date] + label:after,
-.right-alert input[type=datetime-local] + label:after,
-.right-alert input[type=tel] + label:after,
-.right-alert input[type=number] + label:after,
-.right-alert input[type=search] + label:after,
-.right-alert textarea.materialize-textarea + label:after {
+.right-alert input[type=text]+label:after,
+.right-alert input[type=password]+label:after,
+.right-alert input[type=email]+label:after,
+.right-alert input[type=url]+label:after,
+.right-alert input[type=time]+label:after,
+.right-alert input[type=date]+label:after,
+.right-alert input[type=datetime-local]+label:after,
+.right-alert input[type=tel]+label:after,
+.right-alert input[type=number]+label:after,
+.right-alert input[type=search]+label:after,
+.right-alert textarea.materialize-textarea+label:after {
   right: 70px;
 }
 
 /*----------------------------------------
     Tables
 ------------------------------------------*/
-.jsgrid-edit-row input[type="checkbox"], .jsgrid-insert-row input[type="checkbox"], .jsgrid-filter-row input[type="checkbox"], .jsgrid-alt-row input[type="checkbox"], .jsgrid-row input[type="checkbox"], .config-panel input[type=checkbox] {
+.jsgrid-edit-row input[type="checkbox"],
+.jsgrid-insert-row input[type="checkbox"],
+.jsgrid-filter-row input[type="checkbox"],
+.jsgrid-alt-row input[type="checkbox"],
+.jsgrid-row input[type="checkbox"],
+.config-panel input[type=checkbox] {
   position: relative !important;
   left: 0 !important;
   visibility: visible !important;
@@ -7226,7 +7270,25 @@ Cards
 /*----------------------------------------
   Miscellaneous CSS for demo purpose only
 ------------------------------------------*/
-.dynamic-color .red, .dynamic-color .pink, .dynamic-color .purple, .dynamic-color .deep-purple, .dynamic-color .indigo, .dynamic-color .blue, .dynamic-color .light-blue, .dynamic-color .cyan, .dynamic-color .teal, .dynamic-color .green, .dynamic-color .light-green, .dynamic-color .lime, .dynamic-color .yellow, .dynamic-color .amber, .dynamic-color .orange, .dynamic-color .deep-orange, .dynamic-color .brown, .dynamic-color .grey, .dynamic-color .blue-grey {
+.dynamic-color .red,
+.dynamic-color .pink,
+.dynamic-color .purple,
+.dynamic-color .deep-purple,
+.dynamic-color .indigo,
+.dynamic-color .blue,
+.dynamic-color .light-blue,
+.dynamic-color .cyan,
+.dynamic-color .teal,
+.dynamic-color .green,
+.dynamic-color .light-green,
+.dynamic-color .lime,
+.dynamic-color .yellow,
+.dynamic-color .amber,
+.dynamic-color .orange,
+.dynamic-color .deep-orange,
+.dynamic-color .brown,
+.dynamic-color .grey,
+.dynamic-color .blue-grey {
   height: 55px;
   width: 100%;
   padding: 0 15px;

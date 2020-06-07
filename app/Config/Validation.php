@@ -1,4 +1,6 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 class Validation
 {
@@ -32,5 +34,20 @@ class Validation
 
 	//--------------------------------------------------------------------
 	// Rules
+	public $ruangan = [
+		'kd_ruangan' => 'required|min_length[2]',
+		'no_ruangan' => 'required'
+	];
+
+	public $ruangan_errors = [
+		'kd_ruangan' => [
+			'required'      => 'kode ruangan wajib diisi',
+			'min_length'    => 'kode ruangan minimal terdiri dari 2 karakter'
+		],
+		'no_ruangan' => [
+			'required'      => 'Nomor Ruangan Tidak boleh kosong'
+		]
+	];
+
 	//--------------------------------------------------------------------
 }
