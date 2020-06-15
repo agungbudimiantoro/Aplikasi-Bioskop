@@ -14,17 +14,17 @@
 
 <body class="red darken-4">
     <section class="login ">
-        <h3 class="white-text center-align">LOGIN</h3>
+        <h3 class="white-text center-align">LOGIN ADMIN</h3>
         <div class="kotak center white">
             <div class="">
-                <p>Masuk dengan akun anda</p>
+                <p>Masuk dengan akun admin</p>
                 <hr>
                 <div class="flash-data" data-flashdata="<?= session()->getFlashdata('success'); ?>" data-tipe="<?= session()->getFlashdata('tipe'); ?>">
                 </div>
                 <div class="">
                     <?= session()->getFlashdata('error'); ?>
                 </div>
-                <form action="/login/login" method="POST">
+                <form action="/login/loginAdmin" method="POST">
                     <div class="input-field ">
                         <i class="material-icons prefix">account_circle</i>
                         <input name="username" id="icon_username" type="text" class="validate">
@@ -38,16 +38,6 @@
                     <br>
                     <button type="submit" name="masuk" class="waves-effect waves-light red darken-4 btn-small">Sign-In</button>
                 </form>
-                <div class="row">
-                    <div class="col s6">
-                        <br>
-                        <a href="<?= base_url(); ?>/Registrasi">Daftar Sekarang!</a>
-                    </div>
-                    <div class="col s6">
-                        <br>
-                        <a href="<?= base_url(); ?>/LupaPassword">Lupa Password?</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

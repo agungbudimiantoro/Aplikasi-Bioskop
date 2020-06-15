@@ -27,9 +27,6 @@
                     <li>
                         <a href="<?= base_url(); ?>/Login" class="waves-effect waves-light"><i class="material-icons right">person</i>Login</a>
                     </li>
-                    <li><a href="<?= base_url(); ?>/Registrasi" class="waves-effect waves-light"><i class="material-icons right">person_add</i>Daftar
-                            Sekarang</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -41,9 +38,6 @@
         <li><a href="<?= base_url(); ?>/About">Tentang Kami</a></li>
         <li>
             <a href="<?= base_url(); ?>/Login" class="waves-effect waves-light"><i class="material-icons right">person</i>Login</a>
-        </li>
-        <li><a href="<?= base_url(); ?>/Registrasi" class="waves-effect waves-light"><i class="material-icons right">person_add</i>Daftar
-                Sekarang</a>
         </li>
     </ul>
     <!-- navbar end -->

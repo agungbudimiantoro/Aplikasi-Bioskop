@@ -36,7 +36,7 @@
                     <ul class="left">
                         <li>
                             <h1 class="logo-wrapper">
-                                <a href="/home" class="brand-logo darken-1">
+                                <a href="" class="brand-logo darken-1">
                                     <img src="<?= base_url() ?>/assets/dashboard/images/logo/materialize-logo.png" alt="materialize logo">
                                     <span class="logo-text hide-on-med-and-down">BIOSKOP</span>
                                 </a>
@@ -116,55 +116,6 @@
                                 <a href="<?= base_url('/profile') ?>" class="waves-effect waves-cyan">
                                     <i class="material-icons">person</i>
                                     <span class="nav-text">profile</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li class="bold">
-                                <a href="<?= base_url('admin') ?>" class="waves-effect waves-cyan">
-                                    <i class="material-icons">assignment_ind</i>
-                                    <span class="nav-text">Admin</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li class="bold">
-                                <a href="<?= base_url('pengguna') ?>" class="waves-effect waves-cyan">
-                                    <i class="material-icons">people</i>
-                                    <span class="nav-text">Pengguna</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li class="bold">
-                                <a href="<?= base_url('ruangan') ?>" class="waves-effect waves-cyan">
-                                    <i class="material-icons">view_carousel</i>
-                                    <span class="nav-text">Ruangan</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li class="bold">
-                                <a href="<?= base_url('kursi') ?>" class="waves-effect waves-cyan">
-                                    <i class="material-icons">event_seat</i>
-                                    <span class="nav-text">Kursi</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li class="bold">
-                                <a href="<?= base_url('film') ?>" class="waves-effect waves-cyan">
-                                    <i class="material-icons">movie</i>
-                                    <span class="nav-text">Film</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li class="bold">
-                                <a href="<?= base_url('Penayangan') ?>" class="waves-effect waves-cyan">
-                                    <i class="material-icons">videocam
-                                    </i>
-                                    <span class="nav-text">Penayangan</span>
                                 </a>
                             </li>
                         </ul>

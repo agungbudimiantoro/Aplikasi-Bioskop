@@ -3,9 +3,9 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\RuanganModel;
+use App\Models\KursiModel;
 
-class Ruangan extends BaseController
+class Kursi extends BaseController
 {
     public function index()
     {
@@ -15,20 +15,20 @@ class Ruangan extends BaseController
             return redirect()->to('/dashboard');
         }
 
-
         $pager = \Config\Services::pager();
-        $model = new RuanganModel();
+        $model = new KursiModel();
         $data = [
-            'judul' => 'Admin - Ruangan',
-            'ruangan' => $model->orderBy('kd_ruangan')->Paginate(5, 'konten'),
+            'judul' => 'Admin - kursi',
+            'kursi' => $model->orderBy('kd_kursi')->Paginate(5, 'konten'),
             'pager' => $model->pager,
+            'judul_utama' => 'Data kursi',
             'nama' => $session->nama,
             'status' => $session->status,
             'foto' => $session->foto,
-            'judul_utama' => 'Data Ruangan'
+            'ruangan' => $model->getRuangan()
         ];
         echo view('templates/header', $data);
-        echo view('ruangan/ruangan', $data);
+        echo view('kursi/kursi', $data);
         echo view('templates/footer');
     }
 
@@ -40,28 +40,28 @@ class Ruangan extends BaseController
             return redirect()->to('/dashboard');
         }
 
-
-        $model = new RuanganModel();
+        $model = new kursiModel();
         helper('form');
-        $this->form_validation = \Config\Services::validation();
+        $validation = \Config\Services::validation();
 
 
         $data = [
-            'kd_ruangan' => $model->buatid(),
-            'no_ruangan' => $this->request->getPost('no_ruangan')
+            'kd_kursi' => $model->buatid(),
+            'no_kursi' => $this->request->getPost('no_kursi'),
+            'kd_ruangan' => $this->request->getPost('kd_ruangan')
         ];
 
 
-        if ($this->form_validation->run($data, 'ruangan') == FALSE) {
-            $error = $this->form_validation->getError('no_ruangan');
+        if ($validation->run($data, 'kursi') == FALSE) {
+            $error = $validation->listErrors();
             session()->setFlashdata('error', '<br><small class="red-text">
             ' . $error . '</small>');
-            return redirect()->to('/ruangan');
+            return redirect()->to('/kursi');
         } else {
-            $model->tambahRuangan($data);
-            session()->setFlashdata('tipe', 'ruangan');
+            $model->tambahKursi($data);
+            session()->setFlashdata('tipe', 'kursi');
             session()->setFlashdata('success', 'ditambahkan');
-            return redirect()->to('/ruangan');
+            return redirect()->to('/kursi');
         }
     }
 
@@ -73,49 +73,51 @@ class Ruangan extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        $model = new RuanganModel();
+        $model = new KursiModel();
         $cari = $this->request->getPost('cari');
         $pager = \Config\Services::pager();
 
         if (!$cari) {
-            return redirect()->to('/ruangan');
+            return redirect()->to('/kursi');
         }
 
         $data = [
-            'judul' => 'Admin - Ruangan',
-            'ruangan' => $model->orderBy('kd_ruangan')->LIKE('kd_ruangan', $cari, 'both')->orLike('no_ruangan', $cari, 'both')->Paginate(5, 'konten'),
+            'judul' => 'Admin - kursi',
+            'kursi' => $model->orderBy('kd_kursi')->LIKE('kd_kursi', $cari, 'both')->orLike('no_kursi', $cari, 'both')->Paginate(5, 'konten'),
             'pager' => $model->pager,
             'nama' => $session->nama,
             'status' => $session->status,
             'foto' => $session->foto,
-            'judul_utama' => 'Data Ruangan'
+            'judul_utama' => 'Data kursi'
         ];
         echo view('templates/header', $data);
-        echo view('ruangan/ruangan', $data);
+        echo view('kursi/kursi', $data);
         echo view('templates/footer');
     }
 
     public function ubah($id)
-    {        //cek session admin / pengguna
+    {
+        //cek session admin / pengguna
         $session = \Config\Services::session();
         if ($session->status != 'admin') {
             return redirect()->to('/dashboard');
         }
 
-        $model = new RuanganModel();
+        $model = new KursiModel();
         helper('form');
         $this->form_validation = \Config\Services::validation();
         $data = [
-            'judul' => 'Admin - Ruangan',
-            'ruangan' => $model->getId($id),
+            'judul' => 'Admin - kursi',
+            'kursi' => $model->getId($id),
+            'judul_utama' => 'Ubah kursi',
             'nama' => $session->nama,
             'status' => $session->status,
             'foto' => $session->foto,
-            'judul_utama' => 'Ubah Ruangan',
+            'ruangan' => $model->getRuangan()
         ];
 
         echo view('templates/header', $data);
-        echo view('ruangan/editRuangan', $data);
+        echo view('kursi/editKursi', $data);
         echo view('templates/footer');
     }
 
@@ -127,27 +129,28 @@ class Ruangan extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        $model = new RuanganModel();
+        $model = new KursiModel();
         helper('form');
         $this->form_validation = \Config\Services::validation();
 
         $data = [
-            'kd_ruangan' => $this->request->getPost('kd_ruangan'),
-            'no_ruangan' => $this->request->getPost('no_ruangan')
+            'kd_kursi' => $this->request->getPost('kd_kursi'),
+            'no_kursi' => $this->request->getPost('no_kursi'),
+            'kd_ruangan' => $this->request->getPost('kd_ruangan')
         ];
-        $id =  $this->request->getPost('kd_ruangan');
 
-        if ($this->form_validation->run($data, 'ruangan') == FALSE) {
-            $id =  $this->request->getPost('kd_ruangan');
-            $error = $this->form_validation->getError('no_ruangan');
+        $id =  $this->request->getPost('kd_kursi');
+
+        if ($this->form_validation->run($data, 'kursi') == FALSE) {
+            $error = $this->form_validation->listErrors();
             session()->setFlashdata('error', '<br><small class="red-text">
             ' . $error . '</small>');
             return redirect()->to($_SERVER['HTTP_REFERER']);
         } else {
-            $model->updateRuangan($data, $id);
-            session()->setFlashdata('tipe', 'ruangan');
+            $model->updateKursi($data, $id);
+            session()->setFlashdata('tipe', 'kursi');
             session()->setFlashdata('success', 'diubah');
-            return redirect()->to('http://localhost:8080/Ruangan/');
+            return redirect()->to('http://localhost:8080/Kursi/');
         }
     }
 
@@ -160,41 +163,10 @@ class Ruangan extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        $model = new RuanganModel();
-        $model->hapusRuangan($id);
-        session()->setFlashdata('tipe', 'ruangan');
+        $model = new KursiModel();
+        $model->hapusKursi($id);
+        session()->setFlashdata('tipe', 'kursi');
         session()->setFlashdata('success', 'dihapus');
-        return redirect()->to('/ruangan');
+        return redirect()->to('/kursi');
     }
 }
-
-
-// $validation =  \Config\Services::validation();
-// helper(['form', 'url']);
-
-
-
-// $val = $this->validate(
-//     ['no_ruangan' => [
-//         'label'  => 'Nomor Ruangan',
-//         'rules' => 'required|min_length[2]',
-//         'errors' => [
-//             'required' => 'no data  kosong',
-//             'min_length' => 'no data terlalu pendek'
-//         ]
-//     ]],
-//     ['kd_ruangan' => [
-//         'label'  => 'kode Ruangan',
-//         'rules' => 'required|min_length[3]',
-//         'errors' => [
-//             'required' => 'kd data kosong',
-//             'min_length' => 'kd data terlalu pendek'
-//         ]
-//     ]]
-// );
-
-// if ($validation->run()) {
-//     echo "ossk";
-// } else {
-//     echo $validation->listErrors();
-// }

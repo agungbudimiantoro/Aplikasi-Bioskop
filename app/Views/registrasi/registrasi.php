@@ -18,50 +18,55 @@
         <div class="kotak center white">
             <div class="">
                 <p>Buat akun anda</p>
+                <div class="flash-data" data-flashdata="<?= session()->getFlashdata('success'); ?>" data-tipe="<?= session()->getFlashdata('tipe'); ?>">
+                </div>
                 <hr>
                 <br>
-                <form action="" method="POST">
+                <form action="/registrasi/tambah" method="POST">
                     <div class="row">
+                        <div class="">
+                            <?= session()->getFlashdata('error'); ?>
+                        </div>
                         <div class="col m6 s12">
                             <div class="input-field ">
-                                <input name="nama" id="icon_nama" type="text" class="validate" required>
-                                <label for="icon_nama">Nama Lengkap</label>
+                                <input name="nama" id="icon_nama" type="text" class="validate" value="<?= set_value('nama'); ?>">
+                                <label for=" icon_nama">Nama Lengkap</label>
                             </div>
                             <div class="input-field ">
-                                <input name="NIK" id="icon_NIK" type="text" class="validate" required>
+                                <input name="NIK" id="icon_NIK" type="text" class="validate" value="<?= set_value('NIK'); ?>">
                                 <label for="icon_NIK">NIK</label>
                             </div>
                             <div class="input-field ">
-                                <input name="email" id="icon_email" type="email" class="validate" required>
+                                <input name="email" id="icon_email" type="text" class="validate" value="<?= set_value('email'); ?>">
                                 <label for="icon_email">Alamat Email</label>
                             </div>
                             <div class="input-field">
-                                <select name="JK" required>
-                                    <option value="">Jenis Kelamin</option>
-                                    <option value="L">Laki-laki</option>
-                                    <option value="P">Perempuan</option>
+                                <select name="jk">
+                                    <option value="" disabled>Jenis Kelamin</option>
+                                    <option value="L" <?= set_select('jk', 'L') ?>>Laki-laki</option>
+                                    <option value="P" <?= set_select('jk', 'P') ?>>Perempuan</option>
                                 </select>
                                 <label>Jenis Kelamin</label>
                             </div>
                             <div class="input-field">
-                                <textarea name="alamat" id="textarea1" class="materialize-textarea" required></textarea>
+                                <textarea name="alamat" id="textarea1" class="materialize-textarea"><?= set_value('alamat'); ?></textarea>
                                 <label for="textarea1">Alamat</label>
                             </div>
                         </div>
                         <div class="col m6 s12">
                             <div class="input-field ">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input name="username" id="icon_username" type="text" class="validate" required>
+                                <input name="username" id="icon_username" type="text" class="validate" value="<?= set_value('username'); ?>">
                                 <label for="icon_username">Username</label>
                             </div>
                             <div class="input-field ">
                                 <i class="material-icons prefix">lock_outline</i>
-                                <input name="password" id="icon_password" type="password" class="validate" required>
+                                <input name="password" id="icon_password" type="password" class="validate">
                                 <label for="icon_password">Password</label>
                             </div>
                             <div class="input-field ">
                                 <i class="material-icons prefix">lock_outline</i>
-                                <input name="password2" id="icon_password2" type="password" class="validate" required>
+                                <input name="password2" id="icon_password2" type="password" class="validate">
                                 <label for="icon_password2">Konfirmasi Password</label>
                             </div>
                         </div>
@@ -84,6 +89,8 @@
     <script type="text/javascript" src="<?= base_url(); ?>/assets/utama/js/materialize.min.js"></script>
     <!-- my script -->
     <script src="<?= base_url(); ?>/assets/utama/js/script.js"></script>
+    <script src="<?= base_url() ?>/assets/dist/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url() ?>/assets/dist/myscript.js"></script>
 </body>
 
 </html>

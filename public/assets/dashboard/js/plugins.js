@@ -32,14 +32,14 @@ $(function () {
   });
 
   // Perfect Scrollbar
-  // $('select').not('.disabled').material_select();
-  // var leftnav = $(".page-topbar").height();
-  // var leftnavHeight = window.innerHeight - leftnav;
-  // if (!$('#slide-out.leftside-navigation').hasClass('native-scroll')) {
-  //   $('.leftside-navigation').perfectScrollbar({
-  //     suppressScrollX: true
-  //   });
-  // }
+  $('select').not('.disabled').material_select();
+  var leftnav = $(".page-topbar").height();
+  var leftnavHeight = window.innerHeight - leftnav;
+  if (!$('#slide-out.leftside-navigation').hasClass('native-scroll')) {
+    $('.leftside-navigation').perfectScrollbar({
+      suppressScrollX: true
+    });
+  }
 
 
 });
