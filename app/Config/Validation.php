@@ -50,6 +50,31 @@ class Validation
 		]
 	];
 
+	public $transaksi = [
+		'kd_kursi' => 'required',
+		'NIK' => 'required|min_length[16]',
+		'harga' => 'required',
+		'status' => 'required',
+		'metode' => 'required',
+	];
+
+	public $transaksi_errors = [
+		'kd_kursi' => [
+			'required'      => 'Nomor Kursi Tidak boleh kosong'
+		],
+		'status' => [
+			'required'      => 'status Tidak boleh kosong'
+		],
+		'harga' => [
+			'required'      => 'harga Tidak boleh kosong'
+		],
+		'NIK' => [
+			'required'      => 'NIK wajib diisi',
+			'min_length'    => 'NIK salah',
+			'max_length'    => 'NIK salah',
+		],
+	];
+
 	public $penayangan = [
 		'kd_penayangan' => 'required|min_length[2]',
 		'kd_ruangan' => 'required|min_length[2]',

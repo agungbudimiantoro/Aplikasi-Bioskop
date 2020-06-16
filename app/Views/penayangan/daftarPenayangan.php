@@ -9,11 +9,26 @@
             </div>
             <!-- tabel data -->
             <div class="white" style="padding: 20px 20px 20px 20px;">
+                <h5 class="center-align"><?= $judul_utama; ?></h5>
                 <div class="row ">
-                    <h4>Sedang Tayang</h4>
+                    <div class="input-field col s12">
+                        <div class="row">
+                            <form action="/penayangan/cariPenayangan" method="POST">
+                                <div class="col s10">
+                                    <input id="cari" type="date" name="cari" class="validate">
+                                </div>
+                                <button class="btn waves-effect waves-light cyan col s2" type="submit" name="action">cari Tanggal
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <a class="waves-effect waves-light btn modal-trigger" href="/penayangan/bukaTambah">Tambah Data</a>
+                    <br>
+                    <h4>Akan Tayang</h4>
                     <hr>
                     <div class="row">
-                        <?php foreach ($tayang as $row) :
+                        <?php foreach ($penayangan as $row) :
                         ?>
                             <div class="col s6 m4 l4">
                                 <div class="card">
@@ -55,11 +70,8 @@
                                         <br>
                                     </div>
                                     <div class="card-action left">
-                                        <a href="/penayangan/ubah/<?= $row['kd_penayangan']; ?>" class="">
-                                            <span class="lime accent-4 black-text btn">Edit<span class="lime-text">----</span><i class="material-icons left">edit</i></span>
-                                        </a>
-                                        <a class="tombol-hapus" href="/penayangan/hapus/<?= $row['kd_penayangan']; ?>" class="">
-                                            <span class="grey darken-4 white-text btn">Hapus<i class="material-icons left">delete</i></span>
+                                        <a class="" href="/transaksi/cekKursi/<?= $row['kd_penayangan']; ?>" class="">
+                                            <span class="white-text btn">Beli tiket<i class="material-icons left">send</i></span>
                                         </a>
                                     </div>
                                 </div>

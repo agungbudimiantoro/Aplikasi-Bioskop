@@ -47,12 +47,14 @@ class Penayangan extends BaseController
             'judul' => 'Admin - penayangan',
             'judul_utama' => 'Data penayangan',
             'penayangan' => $model->getDataWhere($cari),
+            'tayang' => $model->getTime(),
             'nama' => $session->nama,
             'status' => $session->status,
             'foto' => $session->foto
         ];
         echo view('templates/header', $data);
         echo view('penayangan/penayangan', $data);
+        echo view('penayangan/sedangTayang', $data);
         echo view('templates/footer');
     }
 
@@ -204,5 +206,50 @@ class Penayangan extends BaseController
         session()->setFlashdata('tipe', 'penayangan');
         session()->setFlashdata('success', 'dihapus');
         return redirect()->to('/penayangan');
+    }
+
+    //pelanggan
+    public function Daftar()
+    {
+        $session = \Config\Services::session();
+        $model = new PenayanganModel();
+        $data = [
+            'judul' => 'Admin - penayangan',
+            'judul_utama' => 'Data penayangan',
+            'penayangan' => $model->getData(),
+            'tayang' => $model->getTime(),
+            'nama' => $session->nama,
+            'status' => $session->status,
+            'foto' => $session->foto
+        ];
+
+        echo view('templates/headerp', $data);
+        echo view('penayangan/daftarPenayangan', $data);
+        echo view('penayangan/daftarSedangTayang', $data);
+        echo view('templates/footer');
+    }
+
+    public function cariPenayangan()
+    {
+        //cek session admin / pengguna
+        $session = \Config\Services::session();
+        $cari = $this->request->getPost('cari');
+        if (!$cari) {
+            return redirect()->to('/penayangan');
+        }
+        $model = new PenayanganModel();
+        $data = [
+            'judul' => 'Admin - penayangan',
+            'judul_utama' => 'Data penayangan',
+            'penayangan' => $model->getDataWhere($cari),
+            'tayang' => $model->getTime(),
+            'nama' => $session->nama,
+            'status' => $session->status,
+            'foto' => $session->foto
+        ];
+        echo view('templates/headerp', $data);
+        echo view('penayangan/daftarPenayangan', $data);
+        echo view('penayangan/daftarSedangTayang', $data);
+        echo view('templates/footer');
     }
 }

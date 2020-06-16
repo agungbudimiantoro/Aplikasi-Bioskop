@@ -119,6 +119,15 @@
                                 </a>
                             </li>
                         </ul>
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li class="bold">
+                                <a href="<?= base_url('Penayangan/daftar') ?>" class="waves-effect waves-cyan">
+                                    <i class="material-icons">videocam
+                                    </i>
+                                    <span class="nav-text">Penayangan</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
                 <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only">

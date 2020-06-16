@@ -55,12 +55,6 @@
                                         <br>
                                     </div>
                                     <div class="card-action left">
-                                        <a href="/penayangan/ubah/<?= $row['kd_penayangan']; ?>" class="">
-                                            <span class="lime accent-4 black-text btn">Edit<span class="lime-text">----</span><i class="material-icons left">edit</i></span>
-                                        </a>
-                                        <a class="tombol-hapus" href="/penayangan/hapus/<?= $row['kd_penayangan']; ?>" class="">
-                                            <span class="grey darken-4 white-text btn">Hapus<i class="material-icons left">delete</i></span>
-                                        </a>
                                     </div>
                                 </div>
                             </div>

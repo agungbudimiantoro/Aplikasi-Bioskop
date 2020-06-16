@@ -34,6 +34,7 @@
 <script src="<?= base_url() ?>/assets/dist/sweetalert2.all.min.js"></script>
 <script src="<?= base_url() ?>/assets/dist/myscript.js"></script>
 <script src="<?= base_url() ?>/assets/dashboard/js/myscript.js"></script>
+<script src="<?= base_url() ?>/assets/dashboard/js/kursi-script.js"></script>
 </body>
 
 </html>
