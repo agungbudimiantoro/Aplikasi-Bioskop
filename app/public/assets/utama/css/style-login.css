@@ -1,0 +1,43 @@
+.login {
+    margin-top: 100px;
+}
+
+.login .kotak {
+    margin: auto;
+    padding: 20px 20px 20px 20px;
+    height: 400px;
+    width: 400px;
+}
+
+.login .kotak hr {
+    border: 1px solid black;
+}
+
+.registrasi {
+    margin-top: 20px;
+}
+
+.registrasi .kotak {
+    margin: auto;
+    padding: 20px 20px 20px 20px;
+    width: 80%;
+}
+
+.registrasi .kotak hr {
+    border: 1px solid black;
+}
+
+.lupapassword {
+    margin-top: 100px;
+}
+
+.lupapassword .kotak {
+    margin: auto;
+    padding: 20px 20px 0px 20px;
+    height: 380px;
+    width: 400px;
+}
+
+.lupapassword .kotak hr {
+    border: 1px solid black;
+}
