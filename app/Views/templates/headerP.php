@@ -122,9 +122,9 @@
                         <ul class="collapsible" data-collapsible="accordion">
                             <li class="bold">
                                 <a href="<?= base_url('Penayangan/daftar') ?>" class="waves-effect waves-cyan">
-                                    <i class="material-icons">videocam
+                                    <i class="material-icons">confirmation_number
                                     </i>
-                                    <span class="nav-text">Penayangan</span>
+                                    <span class="nav-text">Pesan Tiket</span>
                                 </a>
                             </li>
                         </ul>

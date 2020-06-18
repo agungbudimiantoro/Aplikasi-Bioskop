@@ -222,8 +222,11 @@ class Penayangan extends BaseController
             'status' => $session->status,
             'foto' => $session->foto
         ];
-
-        echo view('templates/headerp', $data);
+        if ($session->status == 'admin') {
+            echo view('templates/header', $data);
+        } elseif ($session->status == 'pengguna') {
+            echo view('templates/headerp', $data);
+        }
         echo view('penayangan/daftarPenayangan', $data);
         echo view('penayangan/daftarSedangTayang', $data);
         echo view('templates/footer');
@@ -247,6 +250,7 @@ class Penayangan extends BaseController
             'status' => $session->status,
             'foto' => $session->foto
         ];
+
         echo view('templates/headerp', $data);
         echo view('penayangan/daftarPenayangan', $data);
         echo view('penayangan/daftarSedangTayang', $data);

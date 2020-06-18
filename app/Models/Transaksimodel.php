@@ -66,19 +66,19 @@ class TransaksiModel extends Model
         return $this->db->table($this->table)->getWhere(['kd_transaksi' => $id])->getRow();
     }
 
-    public function tambahtransaksi($data)
+    public function tambahTransaksi($data)
     {
         $query = $this->db->table($this->table)->insert($data);
         return $query;
     }
 
-    public function updatetransaksi($data, $id)
+    public function updateTransaksi($data, $id)
     {
         $query = $this->db->table($this->table)->update($data, array('kd_transaksi' => $id));
         return $query;
     }
 
-    public function hapustransaksi($id)
+    public function hapusTransaksi($id)
     {
         $query = $this->db->table($this->table)->delete(array('kd_transaksi' => $id));
         return $query;

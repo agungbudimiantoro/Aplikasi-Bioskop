@@ -34,6 +34,15 @@ class Validation
 
 	//--------------------------------------------------------------------
 	// Rules
+	public $bayar = [
+		'kd_transaksi' => 'required'
+	];
+
+	public $bayar_errors = [
+		'kd_ruangan' => [
+			'required'      => 'kode ruangan wajib diisi',
+		]
+	];
 	public $ruangan = [
 		'kd_ruangan' => 'required|min_length[2]',
 		'no_ruangan' => 'required|max_length[5]'

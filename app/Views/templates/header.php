@@ -164,7 +164,34 @@
                                 <a href="<?= base_url('Penayangan') ?>" class="waves-effect waves-cyan">
                                     <i class="material-icons">videocam
                                     </i>
-                                    <span class="nav-text">Penayangan</span>
+                                    <span class="nav-text">Penayang</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li class="bold">
+                                <a href="<?= base_url('Penayangan/daftar') ?>" class="waves-effect waves-cyan">
+                                    <i class="material-icons">confirmation_number
+                                    </i>
+                                    <span class="nav-text">Jual Tiket</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li class="bold">
+                                <a href="<?= base_url('transaksi/bayar') ?>" class="waves-effect waves-cyan">
+                                    <i class="material-icons">confirmation_number
+                                    </i>
+                                    <span class="nav-text">Bayar Pemesanan</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li class="bold">
+                                <a href="<?= base_url('laporan') ?>" class="waves-effect waves-cyan">
+                                    <i class="material-icons">picture_as_pdf
+                                    </i>
+                                    <span class="nav-text">Cetak Laporan</span>
                                 </a>
                             </li>
                         </ul>

@@ -23,7 +23,6 @@
                             </form>
                         </div>
                     </div>
-                    <a class="waves-effect waves-light btn modal-trigger" href="/penayangan/bukaTambah">Tambah Data</a>
                     <br>
                     <h4>Akan Tayang</h4>
                     <hr>
