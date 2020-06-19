@@ -177,4 +177,68 @@ class Laporan extends BaseController
         $mpdf->WriteHTML(view('laporan/laporanPenayangan', $data));
         return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
     }
+
+    public function penjualan()
+    {
+        $session = \Config\Services::session();
+        if ($session->status != 'admin') {
+            return redirect()->to('/dashboard');
+        }
+        $username = $session->username;
+        $mpdf = new Mpdf(['mode' => 'utf-8']);
+        $model = new LaporanModel();
+
+        $tanggal = $this->request->getPost('hari');
+        $bulan = $this->request->getPost('bulan');
+        $tahun = $this->request->getPost('tahun');
+
+        $data = [
+            'judul' => 'Laporan Data Penjualan',
+            'data' => $model->getPenjualan(),
+            'admin' => $model->getNamaAdmin($username)
+        ];
+        if ($tanggal) {
+            $data['data'] = $model->getPenjualanTgl($tanggal);
+        }
+        if ($tahun) {
+            $data['data'] = $model->getPenjualanTahun($tahun);
+        }
+        if ($bulan) {
+            $data['data'] = $model->getPenjualanBulan($bulan, $tahun);
+        }
+        $mpdf->WriteHTML(view('laporan/laporanTransaksi', $data));
+        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+    }
+
+    public function pemesanan()
+    {
+        $session = \Config\Services::session();
+        if ($session->status != 'admin') {
+            return redirect()->to('/dashboard');
+        }
+        $username = $session->username;
+        $mpdf = new Mpdf(['mode' => 'utf-8']);
+        $model = new LaporanModel();
+
+        $tanggal = $this->request->getPost('hari');
+        $bulan = $this->request->getPost('bulan');
+        $tahun = $this->request->getPost('tahun');
+
+        $data = [
+            'judul' => 'Laporan Data Pemesanan',
+            'data' => $model->getPemesanan(),
+            'admin' => $model->getNamaAdmin($username)
+        ];
+        if ($tanggal) {
+            $data['data'] = $model->getPemesananTgl($tanggal);
+        }
+        if ($tahun) {
+            $data['data'] = $model->getPemesananTahun($tahun);
+        }
+        if ($bulan) {
+            $data['data'] = $model->getPemesananBulan($bulan, $tahun);
+        }
+        $mpdf->WriteHTML(view('laporan/laporanTransaksi', $data));
+        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+    }
 }
