@@ -18,7 +18,7 @@ class TransaksiModel extends Model
         foreach ($results as $row) {
             $maxKode = $row['maxKode'];
         }
-        $noUrut = (int) substr($maxKode, 3, 3);
+        $noUrut = (int) substr($maxKode, 1, 3);
         $noUrut++;
 
         $char = "T";
@@ -29,7 +29,7 @@ class TransaksiModel extends Model
 
     public function cekKursi($ruangan, $kd_kursi)
     {
-        $query = $this->db->query("SELECT kd_kursi FROM kursi WHERE kd_ruangan='$ruangan' ORDER BY kd_kursi limit 36")->getResultArray();;
+        $query = $this->db->query("SELECT kd_kursi FROM kursi WHERE kd_ruangan='$ruangan' ORDER BY kd_kursi")->getResultArray();;
         return $query;
     }
     public function cekRuangan($penayangan)
@@ -40,6 +40,11 @@ class TransaksiModel extends Model
     public function cekTransaksi($penayangan)
     {
         $query = $this->db->query("SELECT kd_kursi FROM transaksi WHERE kd_penayangan='$penayangan'")->getResultArray();
+        return $query;
+    }
+    public function cekTransaksiPengguna($NIK)
+    {
+        $query = $this->db->query("SELECT transaksi.status, transaksi.NIK, penayangan.tanggal, penayangan.waktu_mulai FROM transaksi JOIN penayangan ON transaksi.kd_penayangan = penayangan.kd_penayangan WHERE NIK='$NIK' and status='belum dibayar' and CONCAT(penayangan.tanggal,' ',penayangan.waktu_mulai)>=now()")->getResultArray();
         return $query;
     }
     public function cekFilm($penayangan)
@@ -54,7 +59,7 @@ class TransaksiModel extends Model
     }
     public function getNIk($username)
     {
-        $query = $this->db->query("SELECT NIK FROM pengguna WHERE username='$username'")->getRow();
+        $query = $this->db->query("SELECT NIK, status FROM pengguna WHERE username='$username'")->getRow();
         return $query;
     }
 

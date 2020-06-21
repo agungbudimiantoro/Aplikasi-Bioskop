@@ -96,10 +96,29 @@ class Transaksi extends BaseController
             ' . $error . '</small>');
             return redirect()->to('/profile');
         } else {
+            if ($session->status == 'pengguna') {
+                if ($nik->status != 'aktif') {
+                    $error = 'akun anda tidak dapat melakukan pemesanan, karena tidak melakukan pembayaran di pemesanan sebelumnya';
+                    session()->setFlashdata('error', '<br><small class="red-text">
+                    ' . $error . '</small>');
+                    return redirect()->to('/dashboard');
+                }
+                $transaksi = $model->cekTransaksiPengguna($nik->NIK);
+                if ($transaksi != null) {
+                    $error = 'akun anda tidak dapat melakukan pemesanan, karena batas pemesanan hanya 1';
+                    session()->setFlashdata('error', '<br><small class="red-text">
+                    ' . $error . '</small>');
+                    return redirect()->to('/dashboard');
+                }
+            }
             $model->tambahTransaksi($data);
             session()->setFlashdata('tipe', 'tiket');
             session()->setFlashdata('success', 'dipesan');
-            return redirect()->to('/profile');
+            if ($session->status == 'admin') {
+                return redirect()->to('/laporan/tiket/' . $data['kd_transaksi']);
+            } elseif ($session->status == 'pengguna') {
+                return redirect()->to('/dashboard');
+            }
         }
     }
     public function bayar()
@@ -201,6 +220,6 @@ class Transaksi extends BaseController
         $model->updateTransaksi($data, $kd);
         session()->setFlashdata('tipe', 'pemesanan');
         session()->setFlashdata('success', 'dibayar');
-        return redirect()->to('/transaksi/bayar');
+        return redirect()->to('/laporan/tiket/' . $kd);
     }
 }

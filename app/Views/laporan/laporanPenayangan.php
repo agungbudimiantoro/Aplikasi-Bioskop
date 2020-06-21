@@ -35,21 +35,21 @@
         <tr style="background-color:#999;">
             <th>No</th>
             <th>Kode</th>
+            <th>Judul</th>
             <th>tanggal</th>
             <th>Waktu</th>
-            <th>kode Ruangan</th>
-            <th>kd_film</th>
-            <th>kd_admin</th>
+            <th>No Ruangan</th>
+            <th>Admin</th>
         </tr>
         <?php $no = 0; ?>
         <?php foreach ($data as $row) : ?>
             <tr>
                 <td class="tengah"><?= $no = $no + 1; ?></td>
                 <td><?= $row['kd_penayangan']; ?></td>
+                <td><?= $row['judul']; ?></td>
                 <td><?= $row['tanggal']; ?></td>
                 <td><?= $row['waktu_mulai']; ?></td>
-                <td><?= $row['kd_ruangan']; ?></td>
-                <td><?= $row['kd_film']; ?></td>
+                <td><?= $row['no_ruangan']; ?></td>
                 <td><?= $row['kd_admin']; ?></td>
             </tr>
         <?php endforeach; ?>

@@ -36,14 +36,21 @@ class Login extends BaseController
         if ($cek) {
             //password
             if (password_verify($password, $cek->password)) {
-                $data = [
-                    'username' => $username,
-                    'status' => 'pengguna',
-                    'nama' => $cek->nama,
-                    'foto' => $cek->foto
-                ];
-                $this->session->set($data);
-                return redirect()->to('/dashboard');
+                if ($cek->status != 'belum aktif') {
+                    $data = [
+                        'username' => $username,
+                        'status' => 'pengguna',
+                        'nama' => $cek->nama,
+                        'foto' => $cek->foto
+                    ];
+                    $this->session->set($data);
+                    return redirect()->to('/dashboard');
+                } else {
+                    $error = 'Akun belum aktif!. Silahkan cek email anda';
+                    session()->setFlashdata('error', '<br><small class="red-text">
+                    ' . $error . '</small>');
+                    return redirect()->to('/login/index');
+                }
             } else {
                 $error = 'Username atau Password Salah';
                 session()->setFlashdata('error', '<br><small class="red-text">

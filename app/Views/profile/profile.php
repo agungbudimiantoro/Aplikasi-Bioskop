@@ -28,6 +28,9 @@
                                     <a href="/pengguna/ubah/<?= $profile->NIK ?>" class="btn waves-effect waves-light" type="submit" name="action">Ubah
                                         <i class="material-icons right">edit</i>
                                     </a>
+                                    <a href="/pengguna/ubahPassword/<?= $profile->NIK ?>" class="btn waves-effect waves-light blue" type="submit" name="action">Ubah Password
+                                        <i class="material-icons right">edit</i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

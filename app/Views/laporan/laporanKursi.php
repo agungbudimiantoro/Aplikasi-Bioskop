@@ -44,7 +44,7 @@
                 <td class="tengah"><?= $no = $no + 1; ?></td>
                 <td><?= $row['kd_kursi']; ?></td>
                 <td><?= $row['no_kursi']; ?></td>
-                <td><?= $row['kd_ruangan']; ?></td>
+                <td><?= $row['no_ruangan']; ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

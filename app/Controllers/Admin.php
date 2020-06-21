@@ -165,6 +165,32 @@ class Admin extends BaseController
         echo view('templates/footer');
     }
 
+    public function ubahPassword($id)
+    {
+        //cek session admin / pengguna
+        $session = \Config\Services::session();
+        if ($session->status != 'admin') {
+            return redirect()->to('/dashboard');
+        }
+
+
+        $model = new AdminModel();
+        helper('form');
+        $this->form_validation = \Config\Services::validation();
+        $data = [
+            'judul' => 'ubah password',
+            'admin' => $model->getId($id),
+            'judul_utama' => 'Ubah passowrd',
+            'nama' => $session->nama,
+            'status' => $session->status,
+            'foto' => $session->foto,
+        ];
+
+        echo view('templates/headerP', $data);
+        echo view('admin/AdminUbahPassword', $data);
+        echo view('templates/footer');
+    }
+
     public function update()
     {
         //cek session admin / pengguna
@@ -182,8 +208,6 @@ class Admin extends BaseController
         $data = [
             'id_admin' => $this->request->getPost('id_admin'),
             'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password'),
-            'password2' => $this->request->getPost('password2'),
             'nama' => $this->request->getPost('nama'),
             'jk' => $this->request->getPost('jk'),
             'alamat' => $this->request->getPost('alamat')
@@ -191,17 +215,13 @@ class Admin extends BaseController
 
         $id =  $this->request->getPost('id_admin');
 
-        if ($this->form_validation->run($data, 'admin') == FALSE) {
+        if ($this->form_validation->run($data, 'editProfileAdmin') == FALSE) {
             $error = $this->form_validation->listErrors();
             session()->setFlashdata('error', '<br><small class="red-text">
             ' . $error . '</small>');
             return redirect()->to($_SERVER['HTTP_REFERER']);;
         } else {
-            $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
-            $data['password'] =  $password;
-            unset($data['password2']);
             $model->updateAdmin($data, $id);
-
             $cek = $model->getId($id);
             $array = [
                 'username' => $cek->username,
@@ -213,6 +233,44 @@ class Admin extends BaseController
             session()->setFlashdata('tipe', 'admin');
             session()->setFlashdata('success', 'diubah');
             return redirect()->to('http://localhost:8080/admin/');
+        }
+    }
+    public function updatePassword()
+    {
+        //cek session admin / pengguna
+        $session = \Config\Services::session();
+        if ($session->status != 'admin') {
+            return redirect()->to('/dashboard');
+        }
+
+
+        $model = new AdminModel();
+        helper('form');
+        $this->form_validation = \Config\Services::validation();
+
+
+        $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+
+        $data = [
+            'id_admin' => $this->request->getPost('id_admin'),
+            'password' =>  $this->request->getPost('password'),
+            'password2' =>  $this->request->getPost('password2'),
+        ];
+
+        $id =  $this->request->getPost('id_admin');
+
+        if ($this->form_validation->run($data, 'editPasswordAdmin') == FALSE) {
+            $error = $this->form_validation->listErrors();
+            session()->setFlashdata('error', '<br><small class="red-text">
+            ' . $error . '</small>');
+            return redirect()->to($_SERVER['HTTP_REFERER']);;
+        } else {
+            $data['password'] = $password;
+            unset($data['password2']);
+            $model->updateAdmin($data, $id);
+            session()->setFlashdata('tipe', 'password');
+            session()->setFlashdata('success', 'diubah');
+            return redirect()->to('http://localhost:8080/profile/');
         }
     }
 

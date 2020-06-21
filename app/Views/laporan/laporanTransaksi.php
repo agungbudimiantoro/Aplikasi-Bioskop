@@ -36,23 +36,33 @@
             <th>No</th>
             <th>Kode</th>
             <th>Kode Penayangan</th>
+            <th>NIK</th>
             <th>kode kursi</th>
             <th>Harga</th>
             <th>Diskon</th>
             <th>Total</th>
         </tr>
         <?php $no = 0; ?>
+        <?php $totalAll = 0; ?>
         <?php foreach ($data as $row) : ?>
             <tr>
                 <td class="tengah"><?= $no = $no + 1; ?></td>
                 <td><?= $row['kd_transaksi']; ?></td>
                 <td><?= $row['kd_penayangan']; ?></td>
+                <td><?= $row['NIK']; ?></td>
                 <td><?= $row['kd_kursi']; ?></td>
                 <td><?= $row['harga']; ?></td>
                 <td><?= $row['diskon']; ?>%</td>
-                <td><?= $row['diskon'] / $row['harga']; ?></td>
+                <?php $total = $row['harga'] - (($row['harga'] * $row['diskon']) / 100); ?>
+                <td><?= $total; ?></td>
+                <?php $totalAll =  $totalAll + $total; ?>
             </tr>
         <?php endforeach; ?>
+        <tr>
+            <td colspan="7" align="right" style="font-weight: bold;">TOTAL
+            </td>
+            <td><?= $totalAll; ?></td>
+        </tr>
     </table>
     <div class="kotak">
         <br>

@@ -27,6 +27,9 @@
                                     <a href="/admin/ubah/<?= $profile->id_admin ?>" class="btn waves-effect waves-light" type="submit" name="action">Ubah
                                         <i class="material-icons right">edit</i>
                                     </a>
+                                    <a href="/admin/ubahPassword/<?= $profile->id_admin ?>" class="btn waves-effect waves-light blue" type="submit" name="action">Ubah Password
+                                        <i class="material-icons right">edit</i>
+                                    </a>
                                 </div>
                             </div>
                         </div>

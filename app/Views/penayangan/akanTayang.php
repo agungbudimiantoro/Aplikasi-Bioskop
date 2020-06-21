@@ -12,45 +12,50 @@
                 <h5 class="center-align"><?= $judul_utama; ?></h5>
                 <div class="row ">
                     <div class="input-field col s12">
-                        <!-- Modal Trigger -->
                         <div class="row">
-                            <form action="/film/cari" method="POST">
+                            <form action="/penayangan/cari" method="POST">
                                 <div class="col s10">
-                                    <input id="cari" type="text" name="cari" class="validate">
-                                    <label for="cari">Cari Data</label>
+                                    <input id="cari" type="date" name="cari" class="validate">
                                 </div>
-                                <button class="btn waves-effect waves-light cyan col s2" type="submit" name="action">CARI
+                                <button class="btn waves-effect waves-light cyan col s2" type="submit" name="action">cari Tanggal
                                     <i class="material-icons right">search</i>
                                 </button>
                             </form>
                         </div>
                     </div>
-                    <a class="waves-effect waves-light btn modal-trigger" href="/film/bukaTambah">Tambah Data</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="/penayangan/bukaTambah">Tambah Data</a>
                     <br>
+                    <br>
+                    <a class="waves-effect waves-light btn modal-trigger red" href="/penayangan">Seluruh penayangan</a>
+                    <a class="waves-effect waves-light btn modal-trigger blue" href="/penayangan/akanTayang">Akan Tayang</a>
+                    <a class="waves-effect waves-light btn modal-trigger cyan" href="/penayangan/sedangTayang">Sedang Tayang</a>
+                    <br>
+                    <h4>Akan Tayang</h4>
+                    <hr>
                     <table class="centered striped">
                         <thead>
                             <tr>
-                                <th>Kode Film</th>
-                                <th>Judul</th>
-                                <th>Tahun</th>
-                                <th>Durasi</th>
-                                <th>gambar</th>
+                                <th>Kode</th>
+                                <th>Judul Film</th>
+                                <th>Ruangan</th>
+                                <th>tanggal</th>
+                                <th>Waktu Mulai</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($film as $row) :
+                            <?php foreach ($penayangan as $row) :
                             ?>
                                 <tr>
-                                    <td><?= $row['kd_film']; ?></td>
+                                    <td><?= $row['kd_penayangan']; ?></td>
                                     <td><?= $row['judul']; ?></td>
-                                    <td><?= $row['tahun']; ?></td>
-                                    <td><?= $row['durasi']; ?></td>
-                                    <td><img src="<?= base_url() ?>/uploads/film/<?= $row['gambar']; ?>" width="50px"></td>
-                                    <td><a class="tombol-hapus" href="/film/hapus/<?= $row['kd_film']; ?>" class="">
+                                    <td><?= $row['kd_ruangan']; ?></td>
+                                    <td><?= $row['tanggal']; ?></td>
+                                    <td><?= $row['waktu_mulai']; ?></td>
+                                    <td><a class="tombol-hapus" href="/penayangan/hapus/<?= $row['kd_penayangan']; ?>" class="">
                                             <span class="badge grey darken-4 white-text btn-small">Hapus<i class="material-icons left">delete</i></span>
                                         </a>
-                                        <a href="/film/ubah/<?= $row['kd_film']; ?>" class="">
+                                        <a href="/penayangan/ubah/<?= $row['kd_penayangan']; ?>" class="">
                                             <span class="badge lime accent-4 black-text btn-small">Edit<i class="material-icons left">edit</i></span>
                                         </a>
                                     </td>
@@ -60,10 +65,6 @@
                     </table>
                 </div>
             </div>
-            <div class="row center">
-                <?= $pager->links('konten', 'paging') ?>
-            </div>
-
         </div>
         <!-- akhir tabel data -->
     </div>

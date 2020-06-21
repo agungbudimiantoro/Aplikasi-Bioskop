@@ -18,8 +18,7 @@ class Penayangan extends BaseController
         $data = [
             'judul' => 'Admin - penayangan',
             'judul_utama' => 'Data penayangan',
-            'penayangan' => $model->getData(),
-            'tayang' => $model->getTime(),
+            'penayangan' => $model->getPenayangan(),
             'nama' => $session->nama,
             'status' => $session->status,
             'foto' => $session->foto
@@ -27,6 +26,48 @@ class Penayangan extends BaseController
 
         echo view('templates/header', $data);
         echo view('penayangan/penayangan', $data);
+        echo view('templates/footer');
+    }
+    public function akanTayang()
+    {
+        //cek session admin / pengguna
+        $session = \Config\Services::session();
+        if ($session->status != 'admin') {
+            return redirect()->to('/dashboard');
+        }
+        $model = new PenayanganModel();
+        $data = [
+            'judul' => 'Admin - penayangan',
+            'judul_utama' => 'Data penayangan',
+            'penayangan' => $model->getData(),
+            'nama' => $session->nama,
+            'status' => $session->status,
+            'foto' => $session->foto
+        ];
+
+        echo view('templates/header', $data);
+        echo view('penayangan/akanTayang', $data);
+        echo view('templates/footer');
+    }
+
+    public function sedangTayang()
+    {
+        //cek session admin / pengguna
+        $session = \Config\Services::session();
+        if ($session->status != 'admin') {
+            return redirect()->to('/dashboard');
+        }
+        $model = new PenayanganModel();
+        $data = [
+            'judul' => 'Admin - penayangan',
+            'judul_utama' => 'Data penayangan',
+            'tayang' => $model->getTime(),
+            'nama' => $session->nama,
+            'status' => $session->status,
+            'foto' => $session->foto
+        ];
+
+        echo view('templates/header', $data);
         echo view('penayangan/sedangTayang', $data);
         echo view('templates/footer');
     }
@@ -54,9 +95,9 @@ class Penayangan extends BaseController
         ];
         echo view('templates/header', $data);
         echo view('penayangan/penayangan', $data);
-        echo view('penayangan/sedangTayang', $data);
         echo view('templates/footer');
     }
+
 
     public function bukaTambah()
     {

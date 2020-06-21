@@ -14,9 +14,14 @@
                     <div class="row">
                         <div class="col s12">
                         </div>
+                        <div class="col m3"></div>
                         <div class="col m6 s12">
                             <?= session()->getFlashdata('error'); ?>
                             <input type="text" name="id_admin" value="<?= $admin->id_admin; ?>" hidden>
+                            <div class="input-field ">
+                                <input name="username" id="icon_username" value="<?= $admin->username; ?>" type="text" class="validate" readonly>
+                                <label for="icon_username">Username</label>
+                            </div>
                             <div class="input-field ">
                                 <input name="nama" id="icon_nama" type="text" value="<?= $admin->nama; ?>" class="validate">
                                 <label for="icon_nama">Nama Lengkap</label>
@@ -43,29 +48,11 @@
                                 <textarea name="alamat" id="textarea1" class="materialize-textarea"> <?= $admin->alamat; ?></textarea>
                                 <label for="textarea1">Alamat</label>
                             </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Ubah
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
-                        <div class="col m6 s12">
-                            <div class="input-field ">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input name="username" id="icon_username" value="<?= $admin->username; ?>" type="text" class="validate">
-                                <label for="icon_username">Username</label>
-                            </div>
-                            <div class="input-field ">
-                                <i class="material-icons prefix">lock_outline</i>
-                                <input name="password" id="icon_password" type="password" class="validate">
-                                <label for="icon_password">Password</label>
-                            </div>
-                            <div class="input-field ">
-                                <i class="material-icons prefix">lock_outline</i>
-                                <input name="password2" id="icon_password2" type="password" class="validate">
-                                <label for="icon_password2">Konfirmasi Password</label>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Tambah
-                        <i class="material-icons right">send</i>
-                    </button>
+                        <br>
                 </form>
             </div>
             <!-- akhir tabel data -->

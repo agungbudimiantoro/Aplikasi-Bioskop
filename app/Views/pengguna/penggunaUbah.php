@@ -16,7 +16,6 @@
                     </div>
                     <div class="col m6 s12">
                         <?= session()->getFlashdata('error'); ?>
-                        <input type="text" name="NIK" value="<?= $pengguna->NIK; ?>" hidden>
                         <div class="input-field ">
                             <input name="nama" id="icon_nama" type="text" value="<?= $pengguna->nama; ?>" class="validate">
                             <label for="icon_nama">Nama Lengkap</label>
@@ -50,19 +49,12 @@
                     </div>
                     <div class="col m6 s12">
                         <div class="input-field ">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input name="username" id="icon_username" value="<?= $pengguna->username; ?>" type="text" class="validate">
+                            <input type="text" name="NIK" value="<?= $pengguna->NIK; ?>" readonly>
+                            <label for="icon_nama">NIK</label>
+                        </div>
+                        <div class="input-field ">
+                            <input name="username" id="icon_username" value="<?= $pengguna->username; ?>" type="text" class="validate" readonly>
                             <label for="icon_username">Username</label>
-                        </div>
-                        <div class="input-field ">
-                            <i class="material-icons prefix">lock_outline</i>
-                            <input name="password" id="icon_password" type="password" class="validate">
-                            <label for="icon_password">Password</label>
-                        </div>
-                        <div class="input-field ">
-                            <i class="material-icons prefix">lock_outline</i>
-                            <input name="password2" id="icon_password2" type="password" class="validate">
-                            <label for="icon_password2">Konfirmasi Password</label>
                         </div>
                         <div class="file-field input-field">
                             <div class="btn">

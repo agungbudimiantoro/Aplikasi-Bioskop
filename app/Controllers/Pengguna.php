@@ -87,6 +87,31 @@ class Pengguna extends BaseController
         echo view('pengguna/penggunaUbah', $data);
         echo view('templates/footer');
     }
+    public function ubahPassword($id)
+    {
+        //cek session admin / pengguna
+        $session = \Config\Services::session();
+        if ($session->status != 'pengguna') {
+            return redirect()->to('/dashboard');
+        }
+
+
+        $model = new PenggunaModel();
+        helper('form');
+        $this->form_validation = \Config\Services::validation();
+        $data = [
+            'judul' => 'ubah password',
+            'pengguna' => $model->getId($id),
+            'judul_utama' => 'Ubah passowrd',
+            'nama' => $session->nama,
+            'status' => $session->status,
+            'foto' => $session->foto,
+        ];
+
+        echo view('templates/headerP', $data);
+        echo view('pengguna/penggunaUbahPassword', $data);
+        echo view('templates/footer');
+    }
 
     public function update()
     {
@@ -112,13 +137,13 @@ class Pengguna extends BaseController
         }
 
 
-        $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+        // $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
 
         $data = [
             'NIK' => $this->request->getPost('NIK'),
             'username' => $this->request->getPost('username'),
-            'password' =>  $this->request->getPost('password'),
-            'password2' =>  $this->request->getPost('password2'),
+            // 'password' =>  $this->request->getPost('password'),
+            // 'password2' =>  $this->request->getPost('password2'),
             'nama' => $this->request->getPost('nama'),
             'email' => $this->request->getPost('email'),
             'jk' => $this->request->getPost('jk'),
@@ -128,14 +153,14 @@ class Pengguna extends BaseController
 
         $id =  $this->request->getPost('NIK');
 
-        if ($this->form_validation->run($data, 'registrasi') == FALSE) {
+        if ($this->form_validation->run($data, 'editProfile') == FALSE) {
             $error = $this->form_validation->listErrors();
             session()->setFlashdata('error', '<br><small class="red-text">
             ' . $error . '</small>');
             return redirect()->to($_SERVER['HTTP_REFERER']);;
         } else {
-            $data['password'] = $password;
-            unset($data['password2']);
+            // $data['password'] = $password;
+            // unset($data['password2']);
             $model->updatePengguna($data, $id);
             $sessions = $model->getData($id);
             $array = [
@@ -146,6 +171,45 @@ class Pengguna extends BaseController
             ];
             $session->set($array);
             session()->setFlashdata('tipe', 'pengguna');
+            session()->setFlashdata('success', 'diubah');
+            return redirect()->to('http://localhost:8080/profile/');
+        }
+    }
+
+    public function updatePassword()
+    {
+        //cek session admin / pengguna
+        $session = \Config\Services::session();
+        if ($session->status != 'pengguna') {
+            return redirect()->to('/dashboard');
+        }
+
+
+        $model = new PenggunaModel();
+        helper('form');
+        $this->form_validation = \Config\Services::validation();
+
+
+        $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+
+        $data = [
+            'NIK' => $this->request->getPost('NIK'),
+            'password' =>  $this->request->getPost('password'),
+            'password2' =>  $this->request->getPost('password2'),
+        ];
+
+        $id =  $this->request->getPost('NIK');
+
+        if ($this->form_validation->run($data, 'editPassword') == FALSE) {
+            $error = $this->form_validation->listErrors();
+            session()->setFlashdata('error', '<br><small class="red-text">
+            ' . $error . '</small>');
+            return redirect()->to($_SERVER['HTTP_REFERER']);;
+        } else {
+            $data['password'] = $password;
+            unset($data['password2']);
+            $model->updatePengguna($data, $id);
+            session()->setFlashdata('tipe', 'password');
             session()->setFlashdata('success', 'diubah');
             return redirect()->to('http://localhost:8080/profile/');
         }

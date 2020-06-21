@@ -9,64 +9,59 @@
             </div>
             <!-- tabel data -->
             <div class="white" style="padding: 20px 20px 20px 20px;">
-                <div class="row ">
-                    <h4>Sedang Tayang</h4>
-                    <hr>
+                <h5 class="center-align"><?= $judul_utama; ?></h5>
+                <div class="input-field col s12">
                     <div class="row">
-                        <?php foreach ($tayang as $row) :
-                        ?>
-                            <div class="col s6 m4 l4">
-                                <div class="card">
-                                    <div class="card-image waves-effect waves-block waves-light">
-                                        <img class="activator" src="<?= base_url() ?>/uploads/film/<?= $row['gambar']; ?>" width="300px" height="300px">
-                                    </div>
-                                    <div class="card-content">
-                                        <span class="card-title activator grey-text text-darken-4 center-align"><?= $row['judul']; ?>
-                                        </span>
-                                        <small>Kode : <?= $row['kd_penayangan']; ?></small>
-                                        <br>
-                                        <small>Ruangan : <?= $row['kd_ruangan']; ?></small>
-                                        <br>
-                                        <small>Tanggal : <?= $row['tanggal']; ?></small>
-                                        <br>
-                                        <small>Waktu Mulai : <?= $row['waktu_mulai']; ?></small>
-                                        <br>
-                                        <a class="activator center-align">Cek Detail </a>
-                                    </div>
-                                    <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4 center-align"><?= $row['judul']; ?>
-                                            <i class="material-icons right">close</i>
-                                            </i>
-                                            <hr>
-                                        </span>
-                                        <small>Kode : <?= $row['kd_penayangan']; ?></small>
-                                        <br>
-                                        <small>Ruangan : <?= $row['kd_ruangan']; ?></small>
-                                        <br>
-                                        <small>Waktu Mulai : <?= $row['waktu_mulai']; ?></small>
-                                        <br>
-                                        <small>Tanggal : <?= $row['tanggal']; ?></small>
-                                        <br>
-                                        <small>Tahun : <?= $row['tahun']; ?></small>
-                                        <br>
-                                        <small>Sinopsis : </small>
-                                        <br>
-                                        <small><?= $row['sinopsis']; ?></small>
-                                        <br>
-                                    </div>
-                                    <div class="card-action left">
-                                        <a href="/penayangan/ubah/<?= $row['kd_penayangan']; ?>" class="">
-                                            <span class="lime accent-4 black-text btn">Edit<span class="lime-text">----</span><i class="material-icons left">edit</i></span>
-                                        </a>
-                                        <a class="tombol-hapus" href="/penayangan/hapus/<?= $row['kd_penayangan']; ?>" class="">
-                                            <span class="grey darken-4 white-text btn">Hapus<i class="material-icons left">delete</i></span>
-                                        </a>
-                                    </div>
-                                </div>
+                        <form action="/penayangan/cari" method="POST">
+                            <div class="col s10">
+                                <input id="cari" type="date" name="cari" class="validate">
                             </div>
-                        <?php endforeach; ?>
+                            <button class="btn waves-effect waves-light cyan col s2" type="submit" name="action">cari Tanggal
+                                <i class="material-icons right">search</i>
+                            </button>
+                        </form>
                     </div>
                 </div>
+                <a class="waves-effect waves-light btn modal-trigger" href="/penayangan/bukaTambah">Tambah Data</a>
+                <br>
+                <br>
+                <a class="waves-effect waves-light btn modal-trigger red" href="/penayangan">Seluruh penayangan</a>
+                <a class="waves-effect waves-light btn modal-trigger blue" href="/penayangan/akanTayang">Akan Tayang</a>
+                <a class="waves-effect waves-light btn modal-trigger cyan" href="/penayangan/sedangTayang">Sedang Tayang</a>
+                <br>
+                <h4>Sedang Tayang</h4>
+                <hr>
+                <table class="centered striped">
+                    <thead>
+                        <tr>
+                            <th>Kode</th>
+                            <th>Judul Film</th>
+                            <th>Ruangan</th>
+                            <th>tanggal</th>
+                            <th>Waktu Mulai</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($tayang as $row) :
+                        ?>
+                            <tr>
+                                <td><?= $row['kd_penayangan']; ?></td>
+                                <td><?= $row['judul']; ?></td>
+                                <td><?= $row['kd_ruangan']; ?></td>
+                                <td><?= $row['tanggal']; ?></td>
+                                <td><?= $row['waktu_mulai']; ?></td>
+                                <td><a class="tombol-hapus" href="/penayangan/hapus/<?= $row['kd_penayangan']; ?>" class="">
+                                        <span class="badge grey darken-4 white-text btn-small">Hapus<i class="material-icons left">delete</i></span>
+                                    </a>
+                                    <a href="/penayangan/ubah/<?= $row['kd_penayangan']; ?>" class="">
+                                        <span class="badge lime accent-4 black-text btn-small">Edit<i class="material-icons left">edit</i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
         <!-- akhir tabel data -->

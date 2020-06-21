@@ -71,7 +71,7 @@ class Laporan extends BaseController
             'admin' => $model->getNamaAdmin($username)
         ];
         $mpdf->WriteHTML(view('laporan/laporanPengguna', $data));
-        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+        return redirect()->to($mpdf->Output('pengguna.pdf', 'I'));
     }
 
     public function admin()
@@ -89,7 +89,7 @@ class Laporan extends BaseController
             'admin' => $model->getNamaAdmin($username)
         ];
         $mpdf->WriteHTML(view('laporan/laporanAdmin', $data));
-        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+        return redirect()->to($mpdf->Output('admin.pdf', 'I'));
     }
 
     public function kursi()
@@ -107,7 +107,7 @@ class Laporan extends BaseController
             'admin' => $model->getNamaAdmin($username)
         ];
         $mpdf->WriteHTML(view('laporan/laporanKursi', $data));
-        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+        return redirect()->to($mpdf->Output('kursi.pdf', 'I'));
     }
 
     public function ruangan()
@@ -143,7 +143,7 @@ class Laporan extends BaseController
             'admin' => $model->getNamaAdmin($username)
         ];
         $mpdf->WriteHTML(view('laporan/laporanFilm', $data));
-        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+        return redirect()->to($mpdf->Output('film.pdf', 'I'));
     }
 
     public function penayangan()
@@ -165,6 +165,7 @@ class Laporan extends BaseController
             'data' => $model->getPenayangan(),
             'admin' => $model->getNamaAdmin($username)
         ];
+
         if ($tanggal) {
             $data['data'] = $model->getPenayanganTgl($tanggal);
         }
@@ -175,7 +176,7 @@ class Laporan extends BaseController
             $data['data'] = $model->getPenayanganBulan($bulan, $tahun);
         }
         $mpdf->WriteHTML(view('laporan/laporanPenayangan', $data));
-        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+        return redirect()->to($mpdf->Output('penayangan.pdf', 'I'));
     }
 
     public function penjualan()
@@ -207,7 +208,7 @@ class Laporan extends BaseController
             $data['data'] = $model->getPenjualanBulan($bulan, $tahun);
         }
         $mpdf->WriteHTML(view('laporan/laporanTransaksi', $data));
-        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+        return redirect()->to($mpdf->Output('penjualan.pdf', 'I'));
     }
 
     public function pemesanan()
@@ -239,6 +240,60 @@ class Laporan extends BaseController
             $data['data'] = $model->getPemesananBulan($bulan, $tahun);
         }
         $mpdf->WriteHTML(view('laporan/laporanTransaksi', $data));
-        return redirect()->to($mpdf->Output('htmltopdf.pdf', 'I'));
+        return redirect()->to($mpdf->Output('pemesanan.pdf', 'I'));
+    }
+    public function transaksi()
+    {
+        $session = \Config\Services::session();
+        if ($session->status != 'admin') {
+            return redirect()->to('/dashboard');
+        }
+        $username = $session->username;
+        $mpdf = new Mpdf(['mode' => 'utf-8']);
+        $model = new LaporanModel();
+
+        $tanggal = $this->request->getPost('hari');
+        $bulan = $this->request->getPost('bulan');
+        $tahun = $this->request->getPost('tahun');
+
+        $data = [
+            'judul' => 'Laporan Data Transaksi',
+            'data' => $model->getTransaksi(),
+            'admin' => $model->getNamaAdmin($username)
+        ];
+        if ($tanggal) {
+            $data['data'] = $model->getTransaksiTgl($tanggal);
+        }
+        if ($tahun) {
+            $data['data'] = $model->getTransaksiTahun($tahun);
+        }
+        if ($bulan) {
+            $data['data'] = $model->getTransaksiBulan($bulan, $tahun);
+        }
+        $mpdf->WriteHTML(view('laporan/laporanTransaksiAll', $data));
+        return redirect()->to($mpdf->Output('transaksi.pdf', 'I'));
+    }
+    public function tiket($id)
+    {
+        $session = \Config\Services::session();
+        if ($session->status != 'admin') {
+            return redirect()->to('/dashboard');
+        }
+        $username = $session->username;
+        $mpdf = new Mpdf(['mode' => 'utf-8']);
+        $model = new LaporanModel();
+
+        $data = [
+            'judul' => 'Bioskop',
+            'data' => $model->getTiket($id),
+            'admin' => $model->getNamaAdmin($username)
+        ];
+        $data['penayangan'] = $model->getTiketPenayangan($data['data']->kd_penayangan);
+        $data['film'] = $model->getTiketFilm($data['penayangan']->kd_film);
+        $data['ruangan'] = $model->getTiketRuangan($data['penayangan']->kd_ruangan);
+        $data['kursi'] = $model->getTiketKursi($data['data']->kd_kursi);
+
+        $mpdf->WriteHTML(view('laporan/tiket', $data));
+        return redirect()->to($mpdf->Output('tiket.pdf', 'I'));
     }
 }

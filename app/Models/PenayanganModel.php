@@ -26,9 +26,15 @@ class PenayanganModel extends Model
         return $kode;
     }
 
+
     public function getData()
     {
         $query = $this->db->query('SELECT kd_penayangan,tanggal,waktu_mulai,kd_ruangan,judul,tahun,durasi,sinopsis,gambar FROM penayangan INNER JOIN film ON penayangan.kd_film=film.kd_film WHERE CONCAT(penayangan.tanggal," ",penayangan.waktu_mulai)>=now()')->getResultArray();
+        return $query;
+    }
+    public function getPenayangan()
+    {
+        $query = $this->db->query('SELECT kd_penayangan,tanggal,waktu_mulai,kd_ruangan,judul,tahun,durasi,sinopsis,gambar FROM penayangan INNER JOIN film ON penayangan.kd_film=film.kd_film ORDER BY kd_penayangan')->getResultArray();
         return $query;
     }
     public function getTime()

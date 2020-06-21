@@ -46,7 +46,7 @@
                                         <option value="penayangan">penayangan</option>
                                         <option value="penjualan">penjualan</option>
                                         <option value="pemesanan">pemesanan</option>
-                                        <option value="penjualan & pemesanan">penjualan & pemesanan</option>
+                                        <option value="transaksi">penjualan & pemesanan</option>
                                     </select>
                                     <label>Pilih Laporan</label>
                                 </div>

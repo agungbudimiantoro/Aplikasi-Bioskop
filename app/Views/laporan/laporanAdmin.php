@@ -45,7 +45,11 @@
                 <td class="tengah"><?= $no = $no + 1; ?></td>
                 <td><?= $row['nama']; ?></td>
                 <td><?= $row['username']; ?></td>
-                <td><?= $row['jk']; ?></td>
+                <?php if ($row['jk'] == 'L') : ?>
+                    <td>Laki-Laki</td>
+                <?php else : ?>
+                    <td>Perempuan</td>
+                <?php endif; ?>
                 <td><?= $row['alamat']; ?></td>
             </tr>
         <?php endforeach; ?>

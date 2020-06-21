@@ -34,29 +34,35 @@
     <table width="100%" border="1">
         <tr style="background-color:#999;">
             <th>No</th>
-            <th>Nama</th>
-            <th>NIK</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Jenis kelamin</th>
-            <th>Alamat</th>
+            <th>Kode</th>
+            <th>Metode</th>
+            <th>Kode Penayangan</th>
+            <th>kode kursi</th>
+            <th>Harga</th>
+            <th>Diskon</th>
+            <th>Total</th>
         </tr>
         <?php $no = 0; ?>
+        <?php $totalAll = 0; ?>
         <?php foreach ($data as $row) : ?>
             <tr>
                 <td class="tengah"><?= $no = $no + 1; ?></td>
-                <td><?= $row['nama']; ?></td>
-                <td><?= $row['NIK']; ?></td>
-                <td><?= $row['username']; ?></td>
-                <td><?= $row['email']; ?></td>
-                <?php if ($row['jk'] == 'L') : ?>
-                    <td>Laki-Laki</td>
-                <?php else : ?>
-                    <td>Perempuan</td>
-                <?php endif; ?>
-                <td><?= $row['alamat']; ?></td>
+                <td><?= $row['kd_transaksi']; ?></td>
+                <td><?= $row['metode']; ?></td>
+                <td><?= $row['kd_penayangan']; ?></td>
+                <td><?= $row['kd_kursi']; ?></td>
+                <td><?= $row['harga']; ?></td>
+                <td><?= $row['diskon']; ?>%</td>
+                <?php $total = $row['harga'] - (($row['harga'] * $row['diskon']) / 100); ?>
+                <td><?= $total; ?></td>
+                <?php $totalAll =  $totalAll + $total; ?>
             </tr>
         <?php endforeach; ?>
+        <tr>
+            <td colspan="7" align="right" style="font-weight: bold;">TOTAL
+            </td>
+            <td><?= $totalAll; ?></td>
+        </tr>
     </table>
     <div class="kotak">
         <br>
